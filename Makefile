@@ -1,7 +1,8 @@
 NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_printf_utils.c ft_print_chr.c
-OBJS = $(SRCS:.c=.o)
+MAIN = ft_printf.c
+UTLS = utils/ft_print_chr.c utils/ft_print_str.c utils/ft_print_addr.c utils/ft_print_nbr.c utils/ft_print_hex.c
+OBJS = $(MAIN:.c=.o) $(UTLS:.c=.o)
 
 AR = ar rcs
 

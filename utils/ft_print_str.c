@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcapistr <jcapistr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 14:59:03 by jcapistr          #+#    #+#             */
-/*   Updated: 2023/01/15 13:26:21 by jcapistr         ###   ########.fr       */
+/*   Created: 2023/01/15 11:43:51 by jcapistr          #+#    #+#             */
+/*   Updated: 2023/01/15 11:51:34 by jcapistr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../ft_printf.h"
 
-# include <limits.h>
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_print_str(const char *str)
+{
+	int	i;
 
-int	ft_print_chr(char chr);
-
-int	ft_print_str(const char *str);
-
-int	ft_print_addr(unsigned long long addr);
-
-int	ft_print_nbr(long long nbr);
-
-int	ft_print_hex(unsigned long long nbr, ...);
-
-int	ft_printf(const char *str, ...);
-
-#endif
+	i = 0;
+	if (str == NULL)
+		i += ft_print_str("(null)");
+	while (str != NULL && str[i] != '\0')
+		i += ft_print_chr(str[i]);
+	return (i);
+}
